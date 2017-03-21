@@ -1,0 +1,6 @@
+import './edit'
+import './wechat'
+import './trashcan'
+import './weibo'
+import './add'
+import './list'
