@@ -6,6 +6,7 @@ const path = require('path')
 const pkg = require('./app/package.json')
 const settings = require('./config.js')
 const webpack = require('webpack')
+const bourbon = require('node-bourbon').includePaths
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -50,8 +51,8 @@ let rendererConfig = {
           loader: 'vue-loader',
           options: {
             loaders: {
-              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader'
+              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1&includePaths[]=' + bourbon,
+              scss: 'vue-style-loader!css-loader!sass-loader?includePaths[]=' + bourbon
             }
           }
         }

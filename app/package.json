@@ -4,12 +4,13 @@
   "description": "An electron-vue project",
   "main": "./dist/main.js",
   "dependencies": {
+    "jquery": "^3.2.1",
     "vue": "^2.1.10",
+    "vue-awesome": "^2.2.0",
     "vue-electron": "^1.0.6",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.1.2",
-    "vuex": "^2.1.1",
-    "vue-octicon": "git+ssh://git@github.com:ksky521/vue-octicon.git#master"
+    "vuex": "^2.1.1"
   },
   "devDependencies": {},
   "author": "ksky521 <ksky521@gmail.com>"
