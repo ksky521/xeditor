@@ -2,7 +2,7 @@
   <div class="cols">
     <div class="col J-col"><nav-group></nav-group></div>
     <div class="col J-col"><list-group></list-group></div>
-    <div class="col J-col" id="J-editor"><editor-group></editor-group></div>
+    <div class="col J-col"><editor-group></editor-group></div>
   </div>
 </template>
 

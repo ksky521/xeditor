@@ -10,9 +10,19 @@
           </a>
       </div>
       <div class="hd-right">
+        
         <el-dropdown>
           <span class="el-dropdown-link" title="导出">
             <i class="el-icon-upload2"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>导出 HTML</el-dropdown-item>
+            <el-dropdown-item>导出 PDF</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown>
+          <span class="el-dropdown-link" title="导出">
+            <i class="el-icon-more"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>导出 HTML</el-dropdown-item>
@@ -107,7 +117,7 @@ $header-height: 34px;
       }
     }
     .hd-right{
-      width: 90px;
+      width: 124px;
       float: right;
       margin-right: -6px;
       &>*{

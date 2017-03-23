@@ -17,7 +17,7 @@ let rendererConfig = {
   entry: {
     renderer: path.join(__dirname, 'app/src/renderer/main.js')
   },
-  externals: Object.keys(pkg.dependencies || {}),
+  externals: Array.prototype.concat.apply(Object.keys(pkg.dependencies || {}), ['PR']),
   module: {
     rules: [
       {
@@ -26,6 +26,16 @@ let rendererConfig = {
           fallback: 'style-loader',
           use: 'css-loader'
         })
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'sass-loader?includePaths[]=' + bourbon
+        }]
       },
       {
         test: /\.html$/,
@@ -119,7 +129,7 @@ if (process.env.NODE_ENV !== 'production') {
       {
         test: /\.(js|vue)$/,
         enforce: 'pre',
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /showdown-plugins/, /google-code-prettify/],
         use: {
           loader: 'eslint-loader',
           options: {
