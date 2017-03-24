@@ -64,13 +64,16 @@
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
-    "element-ui": "^1.2.5",
-    "node-bourbon": "^4.2.8",
-    "vuex": "^2.2.1",
     "brace": "^0.9.1",
     "clipboard": "^1.6.0",
-    "hotkeys-js": "^2.0.1",
+    "element-ui": "^1.2.5",
+    "file-loader": "^0.9.0",
+    "font-awesome": "^4.7.0",
+    "font-awesome-webpack": "^0.0.5-beta.2",
+    "font-awesome-webpack2": "^0.0.6",
+    "node-bourbon": "^4.2.8",
     "showdown": "^1.6.4",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "vuex": "^2.2.1"
   }
 }

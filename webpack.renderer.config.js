@@ -28,6 +28,13 @@ let rendererConfig = {
         })
       },
       {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!less-loader'
+        })
+      },
+      {
         test: /\.scss$/,
         use: [{
           loader: 'style-loader'

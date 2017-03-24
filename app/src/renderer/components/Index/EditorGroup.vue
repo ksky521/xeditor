@@ -29,9 +29,6 @@
             <el-dropdown-item>导出 PDF</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <a @click="" class="" title="复制">
-          <i class="el-icon-document"></i>
-        </a>
         <a @click="" class="active">
           <i class="el-icon-delete2" title="删除"></i>
         </a>
@@ -63,7 +60,7 @@
           <el-button v-else
                     class="button-new-tag"
                     size="small"
-                    @click="showInput">+ New Tag</el-button>
+                    @click="showInput">+ Add Tag</el-button>
         </div>
       </div>
     
@@ -117,7 +114,7 @@ $header-height: 34px;
       }
     }
     .hd-right{
-      width: 124px;
+      width: 95px;
       float: right;
       margin-right: -6px;
       &>*{

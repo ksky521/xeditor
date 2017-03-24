@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Electron from 'vue-electron'
 import Resource from 'vue-resource'
 import Router from 'vue-router'
+import 'font-awesome-webpack2'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'

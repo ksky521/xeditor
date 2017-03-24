@@ -2,16 +2,22 @@
   <div class="article-list">
     <header>
       <div class="hd-left">
-        <a >
-          <icon name="sort-amount-desc"></icon>
-        </a>
+        <el-dropdown>
+          <span class="el-dropdown-link" title="导出">
+            <i class="fa fa-sort-amount-desc"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>导出 HTML</el-dropdown-item>
+            <el-dropdown-item>导出 PDF</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
       <div class="note-title">
         <h3>笔记本名称很长很航很长很长很航很长</h3>
       </div>
       <div class="hd-right">
         <a class="add-note">
-          <icon name="pencil"></icon>
+          <i class="fa fa-edit"></i>
         </a>
       </div>
     </header>
@@ -28,50 +34,76 @@
           <el-badge is-dot class="item">
             <h4>这里是文章标题</h4>
             <article>
-              <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
+              <div class="info">
+                <time>1s前</time>
+                <span class="el-tag">tag</span>
+                <span class="el-tag">标签</span>
+                <span class="el-tag">tag3</span>
+                <span class="el-tag">tag4</span>
+              </div>
+              <p>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容</p>
             </article>
           </el-badge>
         </li>
         <li>
           <h4>这里是一个很长很长很长很长很长很长很长很长很长的文章标题</h4>
           <article>
-            <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
+            <div class="info">
+              <time>4小时前</time>
+              <span class="el-tag">tag</span>
+                <span class="el-tag">标签</span>
+              <span class="el-tag">tag2</span>
+              <span class="el-tag">tag3</span>
+              <span class="el-tag">tag4</span>
+            </div>
+            <p>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容</p>
           </article>
         </li>
         <li class="">
           <h4>这里是文章标题</h4>
           <article>
-            <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
+            <div class="info">
+              <time>4小时前</time>
+              <span class="el-tag">tag</span>
+            </div>
+            <p>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容</p>
           </article>
         </li>
         <li class="">
           <h4>这里是文章标题</h4>
           <article>
-            <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
+            <div class="info">
+              <time>4小时前</time>
+            </div>
+            <p>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容</p>
           </article>
         </li>
         <li class="">
           <h4>这里是文章标题</h4>
           <article>
-            <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
+            <div class="info">
+              <time>4小时前</time>
+            </div>
+            <p>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容</p>
           </article>
         </li>
         <li class="">
           <h4>这里是文章标题</h4>
           <article>
-            <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
+            <div class="info">
+              <time>4小时前</time>
+            </div>
+            <p>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容</p>
           </article>
         </li>
         <li class="">
           <h4>这里是文章标题</h4>
           <article>
-            <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
-          </article>
-        </li>
-        <li class="">
-          <h4>这里是文章标题</h4>
-          <article>
-            <time>4小时前</time>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容
+            <div class="info">
+              <time>4小时前</time>
+              <span class="el-tag">tag</span>
+            </div>
+            <p>这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容这里是文章正文内容</p>
           </article>
         </li>
       </ul>
@@ -79,10 +111,6 @@
   </div>
 </template>
 <script>
-import 'vue-awesome/icons/pencil'
-import 'vue-awesome/icons/sort-amount-asc'
-import 'vue-awesome/icons/sort-amount-desc'
-import Icon from 'vue-awesome/components/Icon.vue'
 import $ from 'jquery'
 import eventBus from '../../libs/eventBus'
 
@@ -90,7 +118,6 @@ var $win = $(window)
 export default {
   name: 'listgroup',
   components: {
-    Icon
   },
   data () {
     return {
@@ -122,7 +149,12 @@ export default {
 }
 .article-list {
   $header-height: 34px;
-  @include clearfix;
+  display: flex;
+  margin: 0;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
 
   header {
     -webkit-app-region: drag;
@@ -144,6 +176,7 @@ export default {
     .hd-right{
       float: right;
       text-align: right;
+      margin-top: -2px;
     }
     .note-title{
       width: 100%;
@@ -154,6 +187,7 @@ export default {
     }
     .add-note{
       text-align: right;
+      font-size: 18px;
     }
     h3{
       width: 70%;
@@ -207,10 +241,35 @@ export default {
       white-space: nowrap;
       color: #191919;
     }
-    time{
-      margin-right: 8px;
-      color: #58B7FF;
-      font-weight: 200;
+    .info{
+      margin-bottom: 3px;
+      time{
+        margin-right: 6px;
+        color: #58B7FF;
+        font-weight: 200;
+      }
+      .el-tag{
+        display: inline-block;
+        line-height: 1;
+        height: auto;
+        margin-right: 2px;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 0 0 1px rgba(24,26,28,0.25) inset;
+        color:#191919;
+        background-color: #E8E8E8;
+        padding: 3px 4px;
+        font-weight: normal;
+        font-size: 10px;
+      }
+    }
+    p{
+      height: 50px;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     li.active{
       background-color: #5183FF;

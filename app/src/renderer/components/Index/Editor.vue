@@ -12,11 +12,6 @@
 </style>
 
 <script>
-import Icon from 'vue-awesome/components/Icon.vue'
-import 'vue-awesome/icons/eye'
-import 'vue-awesome/icons/columns'
-import 'vue-awesome/icons/clipboard'
-import 'vue-awesome/icons/save'
 import Editor from '../../libs/Editor.js'
 import eventBus from '../../libs/eventBus'
 import $ from 'jquery'
@@ -25,7 +20,6 @@ var editor
 export default {
   name: 'editor',
   components: {
-    Icon
   },
   mounted () {
     editor = new Editor('#J-editor', { text: '' })

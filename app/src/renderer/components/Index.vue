@@ -38,6 +38,8 @@ export default {
 @import "bourbon";
 .cols{
   display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
   height: 100%;
   position: absolute;
   top: 0;
@@ -46,18 +48,24 @@ export default {
   bottom: 0;
 }
 .col{
-  position: relative;
-  height: 100%;
-  min-height: 100%;
-  @include clearfix;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
   
   &:nth-child(1){
-    width: 170px;
+    width: 150px;
+    flex: 0 0 auto;
     background: #1F2D3D;
   }
   &:nth-child(2){
     width: 260px;
     background-color: #F5F5F4;
+    flex: 0 1 auto;
+    position: relative;
+  }
+  &:nth-child(3){
+    flex: 1;
+    flex-direction: column;
   }
 }
 </style>

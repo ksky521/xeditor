@@ -2,20 +2,29 @@
   <div class="nav">
     <header >
       <a>
-        <icon name="list-ul"></icon>
+        <i class="fa fa-gear"></i>
       </a>
     </header>
     <nav id="J-nav">
       <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
         <el-submenu index="1">
-          <template slot="title"><icon name="book"></icon>笔记本</template>
+          <template slot="title"><i class="fa fa-book"></i>笔记本</template>
           <el-menu-item-group>
             <el-menu-item index="1-1">选项1</el-menu-item>
             <el-menu-item index="1-2">选项2</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="2">
-          <template slot="title"><icon name="tags"></icon>标签</template>
+          <template slot="title"><i class="fa fa-flag"></i>标记</template>
+          <el-menu-item-group>
+            <el-menu-item index="1-1"><i class="fa fa-circle default"></i>蓝色</el-menu-item>
+            <el-menu-item index="1-2"><i class="fa fa-circle success"></i>绿色</el-menu-item>
+            <el-menu-item index="1-2"><i class="fa fa-circle warning"></i>橙色</el-menu-item>
+            <el-menu-item index="1-2"><i class="fa fa-circle danger"></i>红色</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title"><i class="fa fa-tags"></i>标签</template>
           <el-menu-item-group>
             <el-menu-item index="2-1">选项1</el-menu-item>
             <el-menu-item index="2-2">选项2</el-menu-item>
@@ -47,30 +56,25 @@
             <el-menu-item index="2-2">选项2</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
+        <el-menu-item index="4"><i class="fa fa-trash"></i>回收站</el-menu-item>
       </el-menu>
     </nav>
   </div>
 </template>
 <script>
-  
-  import 'vue-awesome/icons/list-ul'
-  import 'vue-awesome/icons/book'
-  import 'vue-awesome/icons/tags'
-  import Icon from 'vue-awesome/components/Icon.vue'
   import $ from 'jquery'
-  import eventBus from '../../libs/eventBus'
+  // import eventBus from '../../libs/eventBus'
 
   var $win = $(window)
   export default {
     name: 'titlebar',
     components: {
-      Icon
     },
     mounted () {
-      this.resize()
-      eventBus.on('window.resize', e => {
-        this.resize()
-      })
+      // this.resize()
+      // eventBus.on('window.resize', e => {
+      //   this.resize()
+      // })
     },
     methods: {
       resize () {
@@ -88,18 +92,22 @@
 <style lang="scss">
 $header-height: 34px;
 .nav{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
   header{
     -webkit-app-region: drag;
+    -webkit-user-select: none;
     height: $header-height;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: #1F2D3D;
-    z-index: 2;
-    width: 100%; 
+    min-height: $header-height;
+    display: flex;
     
     a{
-      float: right;
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      justify-content: flex-end;
       padding: 10px 10px 5px 10px;
       color: #8492A6;
       &:hover{
@@ -108,22 +116,39 @@ $header-height: 34px;
     }
   }
   nav{
-    margin-top: $header-height;
-    position: relative;
-    z-index: 1;
     overflow-y: auto;
-    height: 500px;
+    display: flex;
+    flex: 1 auto;
+    height: auto;
   }
   
   .el-menu {
     color: #797B7F;
     border-radius: 0;
     background-color: transparent;
+    width: 100%;
 
-    svg{
-      position: relative;
-      top: 3px;
+    .el-submenu__title i.fa{
       margin-right: 10px;
+    }
+    .el-menu-item i.fa.fa-trash{
+      margin-right: 13px;
+    }
+    .el-menu-item i.fa{
+      margin-right: 5px;
+      
+      &.default{
+        color: #20A0FF;
+      }
+      &.warning{
+        color: #F7BA2A;
+      }
+      &.danger{
+        color: #FF4949;
+      }
+      &.success{
+        color: #13CE66;
+      }
     }
   }
   .el-submenu .el-menu {
