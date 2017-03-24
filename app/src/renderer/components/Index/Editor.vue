@@ -18,6 +18,13 @@
 .editor-toolbar{
   border: none;
   padding: 0 5px;
+  border-radius: 0 !important;
+  &.fullscreen{
+    text-align: right;
+  }
+  a{
+    outline: none;
+  }
 }
 .CodeMirror {
   border: none;
@@ -38,9 +45,12 @@ export default {
         placeholder: 'Type here...',
         status: false,
         spellChecker: false,
-        toolbar: ['preview', 'side-by-side', '|', 'bold', 'italic', 'strikethrough', '|', 'heading', 'quote', '|', 'unordered-list', 'ordered-list', '|', 'link', 'table', 'image']
+        toolbar: ['preview', 'side-by-side', 'fullscreen', '|', 'bold', 'italic', 'strikethrough', '|', 'heading', 'quote', '|', 'unordered-list', 'ordered-list', '|', 'link', 'table', 'image']
       }
     }
+  },
+  mounted () {
+    console.log(this.simplemde.isSideBySideActive())
   }
 }
 </script>
