@@ -171,7 +171,9 @@ export default {
     .hd-left, .hd-right{
       width: 20px;
       float: left;
-      @include clearfix;
+      a:hover, a.active:hover, span.el-dropdown-link:hover{
+        color: #20A0FF;
+      }
     }
     .hd-right{
       float: right;

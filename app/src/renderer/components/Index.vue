@@ -19,8 +19,8 @@ export default {
     NavGroup
   },
   mounted () {
-    this.resize()
-    $(window).resize(this.resize)
+    // this.resize()
+    // $(window).resize(this.resize)
   },
   methods: {
     resize () {
@@ -36,6 +36,22 @@ export default {
 
 <style lang="scss">
 @import "bourbon";
+i.fa{
+  margin-right: 5px;
+  
+  &.default{
+    color: #20A0FF;
+  }
+  &.warning{
+    color: #F7BA2A;
+  }
+  &.danger{
+    color: #FF4949;
+  }
+  &.success{
+    color: #13CE66;
+  }
+}
 .cols{
   display: flex;
   box-sizing: border-box;

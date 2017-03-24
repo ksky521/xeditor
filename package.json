@@ -74,6 +74,7 @@
     "node-bourbon": "^4.2.8",
     "showdown": "^1.6.4",
     "underscore": "^1.8.3",
+    "vue-simplemde": "^0.3.7",
     "vuex": "^2.2.1"
   }
 }

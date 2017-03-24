@@ -1,37 +1,45 @@
 <template>
   <div class="editor" id="J-editor">
-    
+    <markdown-editor v-model="content"
+                     ref="markdownEditor"
+                     :configs="configs"></markdown-editor>
   </div>
 </template>
 
 <style lang="scss">
-.editor{
-  // padding: 10px;
+.editor {
   color: #D3DCE6;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 0 0;
+  min-height: 0;
+}
+.editor-toolbar{
+  border: none;
+  padding: 0 5px;
+}
+.CodeMirror {
+  border: none;
+  padding: 5px;
 }
 </style>
 
 <script>
-import Editor from '../../libs/Editor.js'
-import eventBus from '../../libs/eventBus'
-import $ from 'jquery'
-const $win = $(window)
-var editor
+import { markdownEditor } from 'vue-simplemde'
 export default {
-  name: 'editor',
   components: {
+    markdownEditor
   },
-  mounted () {
-    editor = new Editor('#J-editor', { text: '' })
-    eventBus.on('window.resize', e => {
-      this.resize()
-    })
-  },
-  methods: {
-    resize () {
-      let height = $win.height() - 34 - 91
-      $('#J-editor').height(height)
-      editor.resize.bind(editor)(height)
+  data () {
+    return {
+      content: '',
+      configs: {
+        placeholder: 'Type here...',
+        status: false,
+        spellChecker: false,
+        toolbar: ['preview', 'side-by-side', '|', 'bold', 'italic', 'strikethrough', '|', 'heading', 'quote', '|', 'unordered-list', 'ordered-list', '|', 'link', 'table', 'image']
+      }
     }
   }
 }

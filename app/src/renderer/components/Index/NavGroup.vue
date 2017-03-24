@@ -136,19 +136,6 @@ $header-height: 34px;
     }
     .el-menu-item i.fa{
       margin-right: 5px;
-      
-      &.default{
-        color: #20A0FF;
-      }
-      &.warning{
-        color: #F7BA2A;
-      }
-      &.danger{
-        color: #FF4949;
-      }
-      &.success{
-        color: #13CE66;
-      }
     }
   }
   .el-submenu .el-menu {

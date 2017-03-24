@@ -3,14 +3,13 @@
     <header>
       <div class="hd-left">
         <a @click="" class="active" title="上一篇">
-            <i class="el-icon-arrow-left"></i>
-          </a>
-          <a @click="" class="">
-            <i class="el-icon-arrow-right" title="下一篇"></i>
-          </a>
+          <i class="el-icon-arrow-left"></i>
+        </a>
+        <a @click="" class="">
+          <i class="el-icon-arrow-right" title="下一篇"></i>
+        </a>
       </div>
       <div class="hd-right">
-        
         <el-dropdown>
           <span class="el-dropdown-link" title="导出">
             <i class="el-icon-upload2"></i>
@@ -20,8 +19,11 @@
             <el-dropdown-item>导出 PDF</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
+        <a @click="" class="active">
+          <i class="el-icon-delete2" title="删除"></i>
+        </a>
         <el-dropdown>
-          <span class="el-dropdown-link" title="导出">
+          <span class="el-dropdown-link" title="更多">
             <i class="el-icon-more"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -29,41 +31,49 @@
             <el-dropdown-item>导出 PDF</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <a @click="" class="active">
-          <i class="el-icon-delete2" title="删除"></i>
-        </a>
-        
       </div>
     </header>
     <div class="editor-wrap">
-      <div class="article-title">
-        <div class="title">
-          <input type="text" v-model="title" placeholder="请输入标题...">
-        </div>
-        <div class="tags">
-          <el-tag :key="tag"
-                  v-for="tag in dynamicTags"
-                  :closable="true"
-                  :close-transition="false"
-                  :type="tag.type"
-                  @close="handleClose(tag)">
-            {{tag.name}}
-          </el-tag>
-          <el-input class="input-new-tag"
-                    v-if="inputVisible"
-                    v-model="inputValue"
-                    ref="saveTagInput"
-                    size="mini"
-                    @keyup.enter.native="handleInputConfirm"
-                    @blur="handleInputConfirm">
-          </el-input>
-          <el-button v-else
-                    class="button-new-tag"
-                    size="small"
-                    @click="showInput">+ Add Tag</el-button>
-        </div>
+      <div class="editor-title">
+        <input type="text" v-model="title" placeholder="请输入标题...">
       </div>
-    
+      <div class="editor-meta">
+          <div class="note-flags">
+            <el-dropdown>
+              <span class="el-dropdown-link" title="颜色标记">
+                标记<i class="fa fa-caret-down"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item><i class="fa fa-circle default"></i>蓝色</el-dropdown-item>
+                <el-dropdown-item><i class="fa fa-circle success"></i>绿色</el-dropdown-item>
+                <el-dropdown-item><i class="fa fa-circle warning"></i>橙色</el-dropdown-item>
+                <el-dropdown-item><i class="fa fa-circle danger"></i>红色</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+          <div class="note-tags">
+            <el-tag :key="tag"
+                    v-for="tag in dynamicTags"
+                    :closable="true"
+                    :close-transition="false"
+                    :type="tag.type"
+                    @close="handleClose(tag)">
+              {{tag.name}}
+            </el-tag>
+            <el-input class="input-new-tag"
+                      v-if="inputVisible"
+                      v-model="inputValue"
+                      ref="saveTagInput"
+                      size="mini"
+                      @keyup.enter.native="handleInputConfirm"
+                      @blur="handleInputConfirm">
+            </el-input>
+            <el-button v-else
+                      class="button-new-tag"
+                      size="small"
+                      @click="showInput">+ Add Tag</el-button>
+          </div>
+        </div>
       <i-editor></i-editor>
     </div>
   </div>
@@ -75,48 +85,68 @@ $header-height: 34px;
   font-size: 14px;
 }
 .el-dropdown-menu{
+  min-width: 60px;
   .el-dropdown-menu__item{
     font-size: 12px;
     line-height: 28px;
   }
 }
 .container {
-  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
   
   header {
     -webkit-app-region: drag;
     height: $header-height;
-    z-index: 2;
+    min-height: $header-height;
+    display: flex;
+    flex-direction: row;
+    flex: 0;
+    align-items: center;
     width: 100%;
-    @include clearfix;
     box-sizing: border-box;    
-    padding: 10px 10px 5px;
+    padding: 0 10px 0;
 
     .hd-left, .hd-right{
-      float: left;
-      @include clearfix;
-      width: 40px;
-      text-align: left;
       color: #5e6d82;
-      font-size: 14px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-end;
       a{
         display: inline-block;
-        float: left;
-        width: 20px;
+      }
+      a:hover, a.active:hover, span.el-dropdown-link:hover{
+        color: #20A0FF;
       }
     }
     .hd-left{
+      flex: 0 1 auto;
+      margin-right: 4px;
       a{
-        color: #E5E9F2;
+        color: rgba(0,0,0,0.15);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 12px;
+        text-align: center;
+        min-height: 1em;
+        i{
+          padding: 8px 10px;
+          
+        }
+        &:first-child i{
+          padding-left: 0;
+        }
         &.active{
           color: #5e6d82;
         }
       }
     }
     .hd-right{
-      width: 95px;
-      float: right;
-      margin-right: -6px;
+      flex: 1 0 auto;
       &>*{
         text-align: center;
         width: 30px;
@@ -125,26 +155,52 @@ $header-height: 34px;
       a{
         width: 30px;
       }
-      .el-dropdown{
-        // float: right;
-      }
     }
   }
   .editor-wrap{
-    .title input{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .editor-title{
+      display: inline-flex;
+      position: relative;
+      font-size: 1em;
+      width: 100%;
+    }
+    .editor-title input{
       font-size: 18px;
       font-weight: 400;
       line-height: 36px;
       border: none;
       width: 100%;
       box-sizing: border-box;
-      padding: 5px 0;
+      flex: 1 0 auto;
+      padding: 5px 10px;
+      color: rgba(0,0,0,0.8);
+      box-sizing: border-box;
+      
       &:focus{
         outline: 0;
       }
     }
-    .tags{
-      padding: 5px 0;
+    .editor-meta{
+      display: flex;
+      flex-direction: row;
+      padding: 5px 10px;
+      border-bottom: 1px solid #E8E8E8;
+      box-sizing: border-box;
+
+      .note-flags{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .el-dropdown i.fa{
+          margin-left: 5px;
+        }
+      }
+      .note-tags{
+        flex: 1 auto;
+      }
       .el-tag{
         margin-left: 10px;
 
@@ -169,10 +225,7 @@ $header-height: 34px;
       }
 
     }
-    .article-title{
-      border-bottom: 1px solid #E8E8E8;
-      padding: 10px 10px 0;
-    }
+    
   }
 }
 </style>
