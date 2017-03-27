@@ -6,54 +6,23 @@
       </a>
     </header>
     <nav id="J-nav">
-      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+      <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
         <el-submenu index="1">
           <template slot="title"><i class="fa fa-book"></i>笔记本</template>
           <el-menu-item-group>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
+            <el-menu-item v-for="(book, index) in books" v-bind:index="'1-' + index">{{ book.name }}</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="2">
           <template slot="title"><i class="fa fa-flag"></i>标记</template>
           <el-menu-item-group>
-            <el-menu-item index="1-1"><i class="fa fa-circle default"></i>蓝色</el-menu-item>
-            <el-menu-item index="1-2"><i class="fa fa-circle success"></i>绿色</el-menu-item>
-            <el-menu-item index="1-2"><i class="fa fa-circle warning"></i>橙色</el-menu-item>
-            <el-menu-item index="1-2"><i class="fa fa-circle danger"></i>红色</el-menu-item>
+            <el-menu-item v-for="(flag, index) in flags" v-bind:index="'2-'+index"><i v-bind:class="'fa fa-circle '+flag.name"></i>{{ flag.color }}</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title"><i class="fa fa-tags"></i>标签</template>
           <el-menu-item-group>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
+            <el-menu-item v-for="(tag, index) in tags" v-bind:index="'3-'+index">{{ tag.name }}</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="4"><i class="fa fa-trash"></i>回收站</el-menu-item>
@@ -63,6 +32,7 @@
 </template>
 <script>
   import $ from 'jquery'
+  import {mapGetters} from 'vuex'
   // import eventBus from '../../libs/eventBus'
 
   var $win = $(window)
@@ -75,6 +45,13 @@
       // eventBus.on('window.resize', e => {
       //   this.resize()
       // })
+    },
+    computed: {
+      ...mapGetters({
+        flags: 'allFlags',
+        books: 'allBooks',
+        tags: 'allTags'
+      })
     },
     methods: {
       resize () {
@@ -147,7 +124,8 @@ $header-height: 34px;
   }
   .el-submenu .el-menu-item:hover, 
   .el-submenu__title:hover, 
-  .el-menu-item:hover{
+  .el-menu-item:hover,
+  .el-menu-item.is-active{
     background-color: #475669;
     color: #D3DCE6;
   }

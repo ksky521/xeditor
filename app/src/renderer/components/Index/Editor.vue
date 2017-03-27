@@ -50,7 +50,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.simplemde.isSideBySideActive())
   }
 }
 </script>

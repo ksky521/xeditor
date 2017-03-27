@@ -44,10 +44,7 @@
                 标记<i class="fa fa-caret-down"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item><i class="fa fa-circle default"></i>蓝色</el-dropdown-item>
-                <el-dropdown-item><i class="fa fa-circle success"></i>绿色</el-dropdown-item>
-                <el-dropdown-item><i class="fa fa-circle warning"></i>橙色</el-dropdown-item>
-                <el-dropdown-item><i class="fa fa-circle danger"></i>红色</el-dropdown-item>
+                <el-dropdown-item v-for="flag in flags"><i v-bind:class="'fa fa-circle ' + flag.name"></i>{{ flag.color }}</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -230,7 +227,7 @@ $header-height: 34px;
 }
 </style>
 <script>
-
+import {mapGetters} from 'vuex'
 import iEditor from './Editor'
 // import $ from 'jquery'
 // import eventBus from '../libs/eventBus'
@@ -250,6 +247,11 @@ export default {
       inputValue: '',
       title: ''
     }
+  },
+  computed: {
+    ...mapGetters({
+      flags: 'allFlags'
+    })
   },
   methods: {
     handleClose (tag) {

@@ -51,6 +51,9 @@ i.fa{
   &.success{
     color: #13CE66;
   }
+  &.purple{
+    color: #DE6EE2;
+  }
 }
 .cols{
   display: flex;

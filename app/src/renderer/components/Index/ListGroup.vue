@@ -131,6 +131,9 @@ export default {
     })
   },
   methods: {
+    handleIconClick () {
+      console.log(this.query)
+    },
     resize () {
       $('#J-article-list').height($win.height() - 34)
     },
