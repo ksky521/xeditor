@@ -72,6 +72,8 @@
     "font-awesome-webpack": "^0.0.5-beta.2",
     "font-awesome-webpack2": "^0.0.6",
     "node-bourbon": "^4.2.8",
+    "pouchdb-adapter-memory": "^6.1.2",
+    "pouchdb-browser": "^6.1.2",
     "showdown": "^1.6.4",
     "underscore": "^1.8.3",
     "vue-simplemde": "^0.3.7",
